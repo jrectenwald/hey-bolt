@@ -13,11 +13,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    @user = User.find(session[:user_id])
-    if @user
-      erb :index
-    else
-      redirect 'sign_in'
+    if session[:user_id]
+      @user = User.find(session[:user_id])
     end
     erb :index
   end
@@ -39,10 +36,14 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sign_up' do
-    @user = User.new(username: params[:username], name: params[:name], email: params[:email], bolt_connection: params[:bolt_connection], 
-      profile_picture: params[:profile_picture], birthday: params[:birthday])
+    puts params[:profile_picture]
+    @user = User.new(username: params[:username], name: params[:name], email: params[:email],
+     bolt_connection: params[:bolt_connection], birthday: params[:birthday])
     @user.password = params[:password]
     @user.save
+    File.open('public/profile_pictures/' + params['profile_picture'][:filename], "w") do |f|
+      f.write(params['profile_picture'][:tempfile].read)
+    end
     redirect '/'
   end
 
@@ -57,5 +58,53 @@ class ApplicationController < Sinatra::Base
       erb :sign_in
     end
   end
+
+  post "/sign_out" do
+    session[:user_id] = nil
+    redirect '/'
+  end
+
+
+
+
+post "/upload" do 
+  File.open('uploads/' + params['myfile'][:filename], "w") do |f|
+    f.write(params['myfile'][:tempfile].read)
+  end
+  return "The file was successfully uploaded!"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 end

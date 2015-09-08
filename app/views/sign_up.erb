@@ -32,20 +32,20 @@
 
     <div class="container">
 
-      <form class="form-signin" action="/sign_up" method="POST">
+      <form class="form-signin" action="/sign_up" method="POST" enctype="multipart/form-data">
         <h2 class="form-signin-heading">Let's Bolt This Up</h2>
 
         <label for="name" class="sr-only">Name</label>
-        <input type="text" name="name" class="form-control" placeholder="Full Name" required autofocus>
+        <input type="text" name="name" class="form-control" placeholder="Full Name"  autofocus>
 
         <label for="username" class="sr-only">Username</label>
-        <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" name="username" class="form-control" placeholder="Username"  autofocus>
 
         <label for="email" class="sr-only">Email address</label>
-        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" name="email" class="form-control" placeholder="Email address"  autofocus>
 
         <label for="password" class="sr-only">Password</label>
-        <input type="text" name="password" class="form-control" placeholder="Password" required autofocus>
+        <input type="text" name="password" class="form-control" placeholder="Password"  autofocus>
 
          <select name="bolt_connection" class="form-control">
           <option disabled="disabled" selected="selected">How do you know Bolt?</option>
@@ -56,10 +56,12 @@
         </select>
 
         <label for="birthday" >Birthday</label>
-        <input type="date" name="birthday" class="specialInput" placeholder="birthday" required autofocus><br/>
+        <input type="date" name="birthday" class="specialInput" placeholder="birthday"  autofocus><br/>
 
-        <label id="pic" for="profile_picture" >Profile Picture</label>
-        <input id="pic" type="file" name="profile_picture" class="specialInput" required autofocus>
+        <input type="file" name="profile_picture">
+
+        <!-- <label id="pic" for="myfile" >Profile Picture</label>
+        <input id="pic" type="file" name="myfile" class="specialInput" required autofocus> -->
 
         <button class="btn btn-lg btn-primary btn-block" id="button" type="submit">Sign up</button>
       </form>
