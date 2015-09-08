@@ -47,6 +47,10 @@
                   <li class="active"><a href="/bio">Bio</a></li>
                   <% if @user %>
                     <li class="active"><a href="/profile">Your Profile</a></li>
+                    <li class="active"><a href="/sign_out">Sign_out</a></li>
+                  <% else %>
+                    <li class="active"><a href="/sign_in">Sign-in</a></li>
+                    <li class="active"><a href="/sign_up">Sign-up</a></li>
                   <% end %>
                 </ul>
               </nav>

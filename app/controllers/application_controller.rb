@@ -13,12 +13,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    # @user = User.find(session[:user_id])
-    # if @user
-    #   erb :index
-    # else
-    #   redirect 'sign_in'
-    # end
+    @user = User.find(session[:user_id])
+    if @user
+      erb :index
+    else
+      redirect 'sign_in'
+    end
     erb :index
   end
 
@@ -46,9 +46,9 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
-  post 'sign_in' do
-    @user = User.find_by(username: params[:username], email: params[:email])
-    if @user
+  post '/sign_in' do
+    @user = User.find_by(email: params[:email])
+    if @user.password == params[:password]
       session[:user_id] = @user.id
       redirect '/'
     else

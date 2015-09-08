@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Bolt - Sign-in</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -32,15 +32,21 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" action="/sign_in" method="POST">
+        <% if @error_message %>
+          <p> <%= @error_message %> </p>
+        <% end %>
         <h2 class="form-signin-heading">Bolt wants to know who you are and why are you at his door and did you bring food? (Sign in please)</h2>
         
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
         
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
     
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" id="button" type="submit">Sign in</button><br/>
+
+        <p class="form-signin form-control" id="button">If you haven't been here before, <a href="/sign_up">introduce yourself!</a></p>
       </form>
+
 
     </div> <!-- /container -->
 

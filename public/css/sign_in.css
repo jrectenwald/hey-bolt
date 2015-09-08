@@ -33,6 +33,19 @@ body {
   padding: 10px;
   font-size: 16px;
 }
+
+#button {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  color: black;
+  font-size: 20px;
+  background-color: rgba(255,255,255,0.5);
+}
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
