@@ -39,8 +39,10 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create(username: params[:username], name: params[:name], email: params[:email],
-     bolt_connection: params[:bolt_connection], profile_picture: params[:profile_picture])
+    @user = User.new(username: params[:username], name: params[:name], email: params[:email], bolt_connection: params[:bolt_connection], 
+      profile_picture: params[:profile_picture], birthday: params[:birthday])
+    @user.password = params[:password]
+    @user.save
     redirect '/'
   end
 

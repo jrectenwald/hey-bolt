@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 <!--     <link rel="stylesheet" type="text/css" href="css/style.css">
- -->    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
+ --> 
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
 
@@ -43,9 +41,13 @@
             <div class="inner">
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Message</a></li>
-                  <li class="active"><a href="#">His Music</a></li>
-                  <li class="active"><a href="#">Slideshow</a></li>
+                  <li class="active"><a href="/message">Message</a></li>
+                  <li class="active"><a href="/music">His Music</a></li>
+                  <li class="active"><a href="/slideshow">Slideshow</a></li>
+                  <li class="active"><a href="/bio">Bio</a></li>
+                  <% if @user %>
+                    <li class="active"><a href="/profile">Your Profile</a></li>
+                  <% end %>
                 </ul>
               </nav>
             </div>
