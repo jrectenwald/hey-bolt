@@ -38,6 +38,10 @@ class ApplicationController < Sinatra::Base
     erb :bolt_gifs
   end
 
+  get '/bio' do
+    erb :bio 
+  end
+
   get '/message' do
     if session[:user_id]
       @user = User.find(session[:user_id])
