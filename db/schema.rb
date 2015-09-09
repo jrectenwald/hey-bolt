@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907171859) do
+ActiveRecord::Schema.define(version: 20150908055057) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150907171859) do
     t.string "bolt_connection"
     t.string "email"
     t.date   "birthday"
-    t.binary "profile_picture"
+    t.string "profile_picture"
     t.string "password_hash"
   end
 

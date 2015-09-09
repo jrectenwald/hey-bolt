@@ -1,5 +1,7 @@
 require './config/environment'
 require './app/models/user'
+require './app/models/message'
+
 
 class ApplicationController < Sinatra::Base
 
@@ -19,6 +21,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/sign_out' do
+    session[:user_id] = nil
+    erb :index
+  end
+
   get '/sign_up' do
     erb :sign_up
   end
@@ -35,10 +42,17 @@ class ApplicationController < Sinatra::Base
     erb :message
   end
 
+  get '/profile' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
+    erb :profile
+  end
+
   post '/sign_up' do
     puts params[:profile_picture]
     @user = User.new(username: params[:username], name: params[:name], email: params[:email],
-     bolt_connection: params[:bolt_connection], birthday: params[:birthday])
+     bolt_connection: params[:bolt_connection], birthday: params[:birthday], profile_picture: params[:profile_picture][:filename])
     @user.password = params[:password]
     @user.save
     File.open('public/profile_pictures/' + params['profile_picture'][:filename], "w") do |f|
@@ -64,47 +78,20 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
+  post '/message' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
+    @message = Message.new(@user.name, params[:message])
+    # this creates a new connection to the Twilio API
+    @client = Twilio::REST::Client.new('ACed3ed813257f8acedfce46a695216257','cb1dd832eda91ea39319fe6827f1650b')
 
-
-
-post "/upload" do 
-  File.open('uploads/' + params['myfile'][:filename], "w") do |f|
-    f.write(params['myfile'][:tempfile].read)
+    # this creates a message and sends it out via Twilio
+    @client.messages.create(
+      from: '+14342605034', # this is the Flatiron School's Twilio number
+      to: '4128057852',
+      body: @message.message
+    )
   end
-  return "The file was successfully uploaded!"
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

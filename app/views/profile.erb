@@ -9,14 +9,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Bolt - Home</title>
+    <title>Bolt - <%= @user.name %></title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 <!--     <link rel="stylesheet" type="text/css" href="css/style.css">
  --> 
     <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -56,16 +56,17 @@
               </nav>
             </div>
           </div>
+          
+          
+          <img id="prof_pic" src="profile_pictures/<%= @user.profile_picture[13..(@user.profile_picture.index(' ') -3)] %>">
+          <h1><%= @user.name %></h1>
+          <ul id="profile_list">
+            <li>Username: <%= @user.username %></li>
+            <li>Relationship with Bolt: <%= @user.bolt_connection.capitalize %></li>
+            <li>Email Adress: <%= @user.email %></li>
+            <li>Birthday: <%= @user.birthday %></li>
 
-          <div class="inner cover" id="background">
-            <h1 class="cover-heading">Bolt</h1>
-            <p class="lead">Because we can clean his saliva off of our clothes.</p>
-            <p class="lead">But we can't clearn it off of our hearts.</p>
-
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">cLick to enter</a>
-            </p>
-          </div>
+          </ul>
 
           <div class="mastfoot">
             <div class="inner">

@@ -33,7 +33,7 @@ html,
 body {
   height: 100%;
   /*background-color: #333;*/
-  background-image: url("../images/bolt21.jpg");
+  background-image: url("../images/bolt1.jpg");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -41,6 +41,10 @@ body {
   background-size: cover;
 
 }
+body.background_image {
+  opacity: 0.1;
+}
+
 body {
   color: #fff;
   text-align: center;
@@ -145,7 +149,6 @@ body {
   color: rgba(255,255,255,.5);
 }
 
-
 /*
  * Affix and center
  */
@@ -181,13 +184,14 @@ body {
 }
 
 #prof_pic {
+  opacity: 1;
   height: 20%;
   width: 20%;
   border: solid white 3px;
 }
 
 #profile_list {
-  float: left;
   border: solid white 3px;
-  width: 400px;
+  list-style-type: none;
+  font-size: 150%;
 }

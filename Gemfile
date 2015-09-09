@@ -5,6 +5,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem "bcrypt"
+gem 'twilio-ruby'
 
 group :development do
   gem "pry"
