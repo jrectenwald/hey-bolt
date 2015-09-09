@@ -39,7 +39,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/message' do
-    erb :message
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      erb :message
+    else 
+      redirect '/sign_in'
+    end
   end
 
   get '/profile' do
@@ -89,7 +94,7 @@ class ApplicationController < Sinatra::Base
     # this creates a message and sends it out via Twilio
     @client.messages.create(
       from: '+14342605034', # this is the Flatiron School's Twilio number
-      to: '4128057852',
+      to: '8042634562',
       body: @message.message
     )
   end
