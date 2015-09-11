@@ -33,15 +33,14 @@
         <center><h1>Bears. Beets. Bolt's Bio.</h1></center>
 
 
-        <div class="navbar-wrapper">
-          <div class="masthead clearfix">
+        <div class="masthead clearfix">
             <div class="inner">
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a id="message_button" href="/">Home</a></li>
                   <li class="active"><a id="message_button" href="/message">Message</a></li>
                   <li class="active"><a href="/music">His Music</a></li>
-                  <li class="active"><a href="/bio">Bio</a></li>
+                  <li class="active"><a href="/gifs">Bifs</a></li>
                   <% if @user %>
                     <li class="active"><a href="/profile"><%= @user.username %></a></li>
                     <li class="active"><a href="/sign_out">Sign-out</a></li>
@@ -53,12 +52,10 @@
               </nav>
             </div>
           </div>
-        </div>
 
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -98,7 +95,7 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div><!-- /.carousel -->
+    </div>
 
 
     <!-- Marketing messaging and featurettes
@@ -153,7 +150,6 @@
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 
     </div><!-- /.container -->
