@@ -32,7 +32,24 @@
   <body>
 
 
-  
+          <div class="masthead clearfix">
+            <div class="inner">
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a id="message_button" href="/message">Message</a></li>
+                  <li class="active"><a href="/music">His Music</a></li>
+                  <li class="active"><a href="/bio">Bio</a></li>
+                  <% if @user %>
+                    <li class="active"><a href="/profile"><%= @user.username %></a></li>
+                    <li class="active"><a href="/sign_out">Sign-out</a></li>
+                  <% else %>
+                    <li class="active"><a href="/sign_in">Sign-in</a></li>
+                    <li class="active"><a href="/sign_up">Sign-up</a></li>
+                  <% end %>
+                </ul>
+              </nav>
+            </div>
+          </div>
 
     <!-- Carousel
     ================================================== -->
