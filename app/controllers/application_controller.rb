@@ -21,6 +21,13 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/music' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
+    erb :music
+  end
+
   get '/sign_out' do
     session[:user_id] = nil
     erb :index
@@ -35,10 +42,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/bolt_gifs' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
     erb :bolt_gifs
   end
 
   get '/bio' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
     erb :bio 
   end
 

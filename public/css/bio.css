@@ -17,20 +17,38 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 20;
+  z-index: 200;
+  display: inline;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
+  display: inline;
 }
 .navbar-wrapper .navbar {
   padding-right: 15px;
   padding-left: 15px;
+  display: inline;
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+  display: inline;
+}
+
+ul {
+  display: inline;
+  float: right;
+  color: white;
+  display: table-cell;
+  vertical-align: top;
+  border: solid black 2px;
+}
+
+.inner {
+  display: inline;
+  color: white;
 }
 
 
@@ -42,6 +60,7 @@ body {
   height: 500px;
   margin-bottom: 60px;
 }
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
@@ -154,3 +173,8 @@ body {
     margin-top: 120px;
   }
 }
+
+.navbar {
+  position: inlineds;
+}
+
