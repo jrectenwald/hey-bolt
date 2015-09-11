@@ -59,14 +59,20 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sign_up' do
-    puts params[:profile_picture]
+    session[:user_id]
     @user = User.new(username: params[:username], name: params[:name], email: params[:email],
-     bolt_connection: params[:bolt_connection], birthday: params[:birthday], profile_picture: params[:profile_picture][:filename])
+     bolt_connection: params[:bolt_connection], birthday: params[:birthday])
     @user.password = params[:password]
     @user.save
-    File.open('public/profile_pictures/' + params['profile_picture'][:filename], "w") do |f|
-      f.write(params['profile_picture'][:tempfile].read)
+
+    if params[:profile_picture]
+      File.open('public/profile_pictures/' + params['profile_picture'][:filename], "w") do |f|
+        f.write(params['profile_picture'][:tempfile].read)
+      end
+      @user.profile_picture = params[:profile_picture][:filename]
     end
+
+    session[:user_id] = @user.id
     redirect '/'
   end
 

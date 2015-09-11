@@ -57,8 +57,9 @@
             </div>
           </div>
           
-          
-          <img id="prof_pic" src="profile_pictures/<%= @user.profile_picture[13..(@user.profile_picture.index(' ') -3)] %>">
+          <% if @user.profile_picture %>
+            <img id="prof_pic" src="profile_pictures/<%= @user.profile_picture[13..(@user.profile_picture.index(' ') -3)] %>">
+          <% end %>
           <h1><%= @user.name %></h1>
           <ul id="profile_list">
             <li>Username: <%= @user.username %></li>
